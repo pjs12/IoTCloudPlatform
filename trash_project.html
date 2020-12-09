@@ -1,0 +1,90 @@
+        <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Final Project</title>
+
+        <!-- JQuery 라이브러리 설정 -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="jquery.datetimepicker.min.css">
+        <script src="jquery.js"></script>
+        <script src="jquery.datetimepicker.full.js"></script>
+
+        <!-- 디바이스 조회 자바스크립트 로딩-->
+        <script src="list_trash_devices.js"></script>
+        
+        <script src="trash_device_state.js"></script>
+
+        <script src="trash_device_log.js"></script>
+
+    </head>
+    <body>
+        <h3>My Trash Device Project</h3>
+
+        <h4>쓰레기통 디바이스 목록 
+        &nbsp;<input type="button" value="기기 조회" onclick="Start();" />
+        </h4>
+
+        <table id="device_list_table">
+            <thead style="background-color:#D1B2FF">
+                <th style="color:white">&nbsp;디바이스 명&nbsp;</th>
+                <th style="color:white">&nbsp;디바이스 상태 로그&nbsp;</th>
+            </thead>
+            <tbody> </tbody>
+        </table>
+        <div id="list_devices">조회된 데이터가 없습니다</div>
+
+        <hr>
+
+        <h4>쓰레기통 잔량 및 잠금 상태</h4>
+        <h5>
+        &nbsp;<input type="button" value="잠금" onclick="Lock();" />
+        <input type="button" value="잠금해제" onclick="Unlock();" />
+        <div id="lock"></div>
+        </h5>
+        
+
+        <table id="device_state_table">
+            <thead style="background-color:lightpink">
+                <th style="color:white">&nbsp;쓰레기통 잠금 상태&nbsp;</th>
+                <th style="color:white">&nbsp;쓰레기통 남은 공간&nbsp;</th>
+                <th style="color:white">&nbsp;&nbsp;수거 알림&nbsp;&nbsp;
+                </th>   
+            </thead>
+            <tbody> </tbody>
+        </table>
+        <div id="state_devices">현재 상태를 표시하기 위해서 디바이스를 선택하세요</div>
+
+        <hr>
+
+        <h4>쓰레기통 잔량 및 잠금 상태 로그</h4>
+
+        <h5>
+        &nbsp;<input id="date_start" placeholder="start time" style="text-align:center">
+        <input id="date_end" placeholder="end time" style="text-align:center">
+        &nbsp;<input type="button" value="해당 기간 조회" onclick="DateStart();" />
+        </h5>
+
+        <script>
+	        $('#date_start').datetimepicker({
+	        	step:1
+
+	        });
+	    	$('#date_end').datetimepicker({
+	    		step:1
+	    	});
+	    </script>
+        
+        <table id="device_log_table">
+            <thead style="background-color:lightblue">
+                <th style="color:white">&nbsp;쓰레기통 남은 공간&nbsp;</th>
+                <th style="color:white">&nbsp;쓰레기통 잠금 상태&nbsp;</th>
+                <th style="color:white">&nbsp;&nbsp;시간&nbsp;&nbsp;</th>
+            </thead>
+            <tbody> </tbody>
+        </table>
+        <div id="log_devices">상태 로그를 표시하기 위해서는 디바이스 상태 로그를 선택하세요</div>
+
+    </body>
+</html>
